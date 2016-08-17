@@ -67,7 +67,8 @@ class Wechat{
     }
     $ticketstr="jsapi_ticket=". $ticket ."&noncestr=". $noncestr ."&timestamp=". $time ."&url=". $url;
     $sign = sha1($ticketstr);
-    return json_encode(array("appid" => $this->_appid,"time" => $time, "noncestr" => $noncestr, "sign" => $sign, "url" => $url));
+    $jssdk = array("appid" => $this->_appid,"time" => $time, "noncestr" => $noncestr, "sign" => $sign, "url" => $url);
+    return json_encode(array('code' => '10', 'msg' => 'success', 'jssdk' => $jssdk), JSON_UNESCAPED_UNICODE);
   }
 
   public function getTicket($access_token){

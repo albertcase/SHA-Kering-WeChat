@@ -6,6 +6,18 @@ wechat_api_feedback:
     path:     /wechat
     defaults: { _controller: WechatApiBundle:Default:wechat }
 
+wechat_api_empower:
+    path:     /empower
+    defaults: { _controller: WechatApiBundle:Default:empower }
+
+wechat_api_sharetoken:
+    path:     /sharetoken
+    defaults: { _controller: WechatApiBundle:Default:sharetoken }
+
+wechat_api_sharetoken2:
+    path:     /sharetoken
+    defaults: { _controller: WechatApiBundle:Default:sharetoken2 }
+
 wechat_api_api1:
     path:     /api1
     defaults: { _controller: WechatApiBundle:Default:api1 }

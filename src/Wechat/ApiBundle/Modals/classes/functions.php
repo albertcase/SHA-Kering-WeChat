@@ -59,4 +59,15 @@ class functions{
     $dataSql->setLocalpath($url, $path);
     return $path;
   }
+
+  public function allowurl($url){ // allow empower domain
+    $allow = array(
+      'shangrilawechat.samesamechina.com',
+    );
+    foreach($allow as $x){
+      if(preg_match("/^".$x."/i", $url))
+      return true;
+    }
+    return false;
+  }
 }

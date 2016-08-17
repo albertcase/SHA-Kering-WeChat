@@ -25,6 +25,34 @@ class DefaultController extends Controller
       return $respose->send();
     }
 
+    public function empowerAction(Request $request)
+    {
+      $wechat = $this->container->get('my.Wechat');
+      if(!$this->container->get('my.functions')->allowurl($request->query->get('state'))){
+        return new Response('this domain not allow empower');
+      }
+      $userinfo = $wechat->getoauthuserinfo();
+      unset($userinfo['privilege'],$userinfo['unionid'],$userinfo['language']);
+      $data = "openid={$userinfo['openid']}&nickname={$userinfo['nickname']}&headimgurl={$userinfo['headimgurl']}";
+      if(strpos($state, '?') === false)
+        $data = '?'.$data;
+      $goto = 'http://'.$state.$data;
+      return $this->redirect($goto);
+    }
+
+    public function sharetokenAction(Request $request){//jsonp
+      $wechat = $this->container->get('my.Wechat');
+      $callback = $request->query->get('callback');
+      $url = urldecode($request->query->get('url'));
+      return new Response($callback.'('.$wechat->getJsSDK($url).')');
+    }
+
+    public function sharetoken2Action(Request $request){//json get
+      $wechat = $this->container->get('my.Wechat');
+      $url = urldecode($request->query->get('url'));
+      return new Response($wechat->getJsSDK($url));
+    }
+
     public function uploadstoreAction()
     {
       $form = $this->container->get('form.uploadstore');
