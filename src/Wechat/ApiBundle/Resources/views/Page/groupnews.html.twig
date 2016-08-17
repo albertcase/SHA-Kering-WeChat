@@ -1,0 +1,84 @@
+{% extends '::backendbase.html.twig' %}
+{% block title %}MAXMARA GROUP NEWS{% endblock %}
+{% block navgroupnews %}active{% endblock %}
+
+{% block maincontent %}
+<div class="panel panel-default" id="groupnews">
+   <div class="panel-heading">
+         GROUP NEWS
+   </div>
+   <div class="panel-body" id="groupnewspanel">
+{% for x in newslist %}
+<div style="float:left;padding:20px">
+  <div class="newscard">
+    <div>
+      <div>
+        <ul>
+{% set y = 0 %}
+{% for xx in x['content']['news_item'] %}
+{% if y == 0 %}
+          <li  style="background-repeat: no-repeat;background-size:cover;background-image:url('{{ x['content']['news_item'][y]['thumb_url']|e }}')">
+            <p>{{ x['content']['news_item'][y]['title']|e }}</p>
+            <a href="{{ x['content']['news_item'][y]['url']|e }}" target="_blank">点击预览</a>
+          </li>
+{% else %}
+          <li>
+            <p>{{ x['content']['news_item'][y]['title']|e }}</p>
+            <img src="{{ x['content']['news_item'][y]['thumb_url']|e }}" />
+            <a href="{{ x['content']['news_item'][y]['url']|e }}" target="_blank">点击预览</a>
+          </li>
+{% endif %}
+{% set y = y + 1 %}
+{% endfor %}
+        </ul>
+      </div>
+    </div>
+    <div>
+      <button type="button" class="btn btn-primary groupnewssend" media-id="{{ x['media_id']|e }}" >
+         Group Send
+      </button>
+    </div>
+  </div>
+</div>
+{% endfor %}
+    </div>
+</div>
+<!-- popup -->
+<div class="modal fade" id="groupnewspop" tabindex="-1" role="dialog"
+   aria-labelledby="myModalLabel" aria-hidden="true">
+   <div class="modal-dialog">
+      <div class="modal-content">
+         <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal"
+               aria-hidden="true">
+            </button>
+            <h4 class="modal-title" id="groupnewsLabel">
+               Group News Send
+            </h4>
+         </div>
+         <div class="modal-body">
+ <div class="form-group">
+      <div class="newscard" style="float:none;height:360px;margin:0px auto" id="newsselect">
+
+      </div>
+ </div>
+  <div class="form-group" style="text-align:center">
+    <label for="groupscontrol control-label">Send To：</label>
+    <select class="form-control" id="groupscontrol" style="width:200px;display:inline">
+
+    </select>
+  </div>
+         </div><!-- /.modal-body -->
+         <div class="modal-footer">
+            <button type="button" class="btn btn-default"
+               data-dismiss="modal">Close
+            </button>
+            <button type="button" class="btn btn-primary" id="groupnewssubmit">
+               Send
+            </button>
+         </div>
+      </div><!-- /.modal-content -->
+   </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+<!-- popup end -->
+{% endblock %}

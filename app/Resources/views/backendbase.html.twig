@@ -1,0 +1,89 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<meta name="keywords" content="Photography, Photo Images, Responsive, Business, Corporate, Gallery, Notebook" />
+<meta name="description" content="PhotoBax Responsive Photography Business Template" />
+<!-- basehead -->
+    <head>
+        <meta charset="UTF-8" />
+        <!-- title -->
+        <title>{% block title %}Page Name{% endblock %}</title>
+        <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+{% block stylesheets %}
+        <link href="/source/manage/css/bootstrap.min.css" rel="stylesheet">
+        <link href="/source/manage/css/plugins/metisMenu/metisMenu.min.css" rel="stylesheet">
+        <link href="/source/manage/css/plugins/dataTables.bootstrap.css" rel="stylesheet">
+        <link href="/source/manage/css/sb-admin-2.css" rel="stylesheet">
+        <link href="/source/change/css/main.css" rel="stylesheet"  />
+        <link href="/source/manage/font-awesome-4.1.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+{% endblock %}
+
+{% block javascripts %}
+<script type="text/javascript" src="/source/manage/js/jquery-1.11.0.js"></script>
+<script type="text/javascript" src="/source/manage/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="/source/manage/js/plugins/metisMenu/metisMenu.min.js"></script>
+<script type="text/javascript" src="/source/manage/js/plugins/dataTables/jquery.dataTables.js"></script>
+<script type="text/javascript" src="/source/manage/js/plugins/dataTables/dataTables.bootstrap.js"></script>
+<script type="text/javascript" src="/source/manage/js/sb-admin-2.js"></script>
+<script type="text/javascript" src="/source/change/js/main.js"></script>
+{% endblock %}
+</head>
+<body>
+  <div id="adpmain">
+    <div>
+<img src="/source/change/img/adplog.png" style="margin-top:20px"/>
+<a href="/user/logout" style="color:red" class="pull-right"><i class="fa fa-sign-out fa-fw"></i></a>
+<a href="/user/preference" class="pull-right" style="color:#222;"><i class="fa fa-user btn-lg"></i></a>
+    </div>
+    <ul class="nav nav-tabs" style="margin-top:20px">
+{% if "wechat_api_wechatmenu" in userinfo.permission or "user_usercontrol" in userinfo.permission %}
+       <li class="{% block navmenu %}{% endblock %}"><a href="/wechat/menu">NAVIGATION</a></li>
+{% endif %}
+{% if "article_control" in userinfo.permission or "user_usercontrol" in userinfo.permission %}
+       <li class="{% block navpag %}{% endblock %}"><a href="/article/page">PAGE</a></li>
+{% endif %}
+{% if "wechat_api_keyword" in userinfo.permission or "user_usercontrol" in userinfo.permission %}
+       <li class="{% block navkeyword %}{% endblock %}"><a href="/wechat/keyword">KEYWORD</a></li>
+{% endif %}
+{% if "wechat_api_reply" in userinfo.permission or "user_usercontrol" in userinfo.permission %}
+       <li class="{% block navreplay %}{% endblock %}"><a href="/wechat/reply">AUTO-REPLY</a></li>
+{% endif %}
+{% if "wechat_api_groupnews" in userinfo.permission or "user_usercontrol" in userinfo.permission %}
+       <li class="{% block navgroupnews %}{% endblock %}"><a href="/wechat/groupnews">Group News</a></li>
+{% endif %}
+    </ul>
+    <div id="maincontent">
+{% block maincontent %}
+{% endblock %}
+    </div>
+  </div>
+  <!-- warningpopup -->
+<div id="warningpopup">
+
+</div>
+<!-- warningpopup end -->
+<!-- comfirmpopup -->
+<div id="comfirmpopup">
+  <div class="comfirmpopup">
+  </div>
+</div>
+<!-- comfirmpopup end -->
+<div id="loadingpopup">
+  <div class="loadingpopup">
+    <i class="fa fa-spinner fa-spin"></i>
+  </div>
+</div>
+
+<!-- progress -->
+<div id="myprogress">
+  <div class="progress progress-striped active">
+     <div class="progress-bar progress-bar-success" role="progressbar"
+        aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"
+        style="width: 100%;">
+        <span class="sr-only">40% 完成</span>
+     </div>
+  </div>
+</div>
+<!-- progress end -->
+</body>
+</html>

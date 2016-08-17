@@ -1,0 +1,135 @@
+wechat_api_homepage:
+    path:     /hello/{name}
+    defaults: { _controller: WechatApiBundle:Default:index }
+
+wechat_api_feedback:
+    path:     /wechat
+    defaults: { _controller: WechatApiBundle:Default:wechat }
+
+wechat_api_api1:
+    path:     /api1
+    defaults: { _controller: WechatApiBundle:Default:api1 }
+
+wechat_api_papi_uploadstore:
+    path:     /wechatdefault/uploadstore
+    defaults: { _controller: WechatApiBundle:Default:uploadstore }
+
+wechat_api_reloadstoremap:
+    path:     /reloadstoremap
+    defaults: { _controller: WechatApiBundle:Default:reloadstoremap }
+# wechat_wechatmenu start
+wechat_wechatmenu_papi_getmenus:
+    path:     /wechatmenu/getmenus
+    defaults: { _controller: WechatApiBundle:Wechatmenu:getmenus }
+
+wechat_wechatmenu_papi_getmmenu:
+    path:     /wechatmenu/getmmenu
+    defaults: { _controller: WechatApiBundle:Wechatmenu:getmmenu }
+
+wechat_wechatmenu_papi_createmenu:
+    path:     /wechatmenu/createmenu
+    defaults: { _controller: WechatApiBundle:Wechatmenu:createmenu }
+
+wechat_wechatmenu_papi_getbuttoninfo:
+    path:     /wechatmenu/getbuttoninfo
+    defaults: { _controller: WechatApiBundle:Wechatmenu:getbuttoninfo }
+
+wechat_wechatmenu_papi_deletebutton:
+    path:     /wechatmenu/deletebutton
+    defaults: { _controller: WechatApiBundle:Wechatmenu:deletebutton }
+
+wechat_wechatmenu_papi_addsubbutton:
+    path:     /wechatmenu/addsubbutton
+    defaults: { _controller: WechatApiBundle:Wechatmenu:addsubbutton }
+
+wechat_wechatmenu_papi_addmbutton:
+    path:     /wechatmenu/addmbutton
+    defaults: { _controller: WechatApiBundle:Wechatmenu:addmbutton }
+
+wechat_wechatmenu_papi_updatebutton:
+    path:     /wechatmenu/updatebutton
+    defaults: { _controller: WechatApiBundle:Wechatmenu:updatebutton }
+
+wechat_wechatmenu_papi_updateevent:
+    path:     /wechatmenu/updateevent
+    defaults: { _controller: WechatApiBundle:Wechatmenu:updateevent }
+
+wechat_wechatmenu_papi_getevent:
+    path:     /wechatmenu/getevent
+    defaults: { _controller: WechatApiBundle:Wechatmenu:getevent }
+# wechat_wechatmenu end
+
+# wechat keyword start
+wechat_keyword_papi_keywordadd:
+    path:     /wechat/keywordadd
+    defaults: { _controller: WechatApiBundle:Keyword:keywordadd }
+
+wechat_keyword_papi_getkeywordlist:
+    path:     /wechat/getkeywordlist
+    defaults: { _controller: WechatApiBundle:Keyword:getkeywordlist }
+
+wechat_keyword_papi_keyworddel:
+    path:     /wechat/keyworddel
+    defaults: { _controller: WechatApiBundle:Keyword:keyworddel }
+
+wechat_keyword_papi_getkeywordinfo:
+    path:     /wechat/getkeywordinfo
+    defaults: { _controller: WechatApiBundle:Keyword:getkeywordinfo }
+
+wechat_keyword_papi_keywordupdate:
+    path:     /wechat/keywordupdate
+    defaults: { _controller: WechatApiBundle:Keyword:keywordupdate }
+# wechat keyword end
+
+# wechat autoreplay start
+wechat_autoreply_papi_autoreply:
+    path:     /wechat/autoreply
+    defaults: { _controller: WechatApiBundle:Autoreply:autoreply }
+
+wechat_autoreply_papi_autoreplyinfo:
+    path:     /wechat/autoreplyinfo
+    defaults: { _controller: WechatApiBundle:Autoreply:autoreplyinfo }
+
+wechat_autoreply_papi_autoreplydel:
+    path:     /wechat/autoreplydel
+    defaults: { _controller: WechatApiBundle:Autoreply:autoreplydel }
+
+wechat_autoreply_papi_uploadimage:
+    path:     /wechat/uploadimage
+    defaults: { _controller: WechatApiBundle:Autoreply:uploadimage }
+# wechat autoreplay end
+# wechat groupnews
+wechat_groupnews_papi_batchgetmaterial:
+    path:     /wechat/batchgetmaterial
+    defaults: { _controller: WechatApiBundle:Groupnews:batchgetmaterial }
+
+wechat_groupnews_papi_getgrouptags:
+    path:     /wechat/getgrouptags
+    defaults: { _controller: WechatApiBundle:Groupnews:getgrouptags }
+
+wechat_groupnews_papi_setsendnewsevent:
+    path:     /wechat/setsendnewsevent
+    defaults: { _controller: WechatApiBundle:Groupnews:setsendnewsevent }
+# wechat groupnews end
+
+# wechat page list start
+wechat_page_groupnews:
+    path:     /wechat/groupnews
+    defaults: { _controller: WechatApiBundle:Page:groupnews }
+
+wechat_page_menu:
+    path:     /wechat/menu
+    defaults: { _controller: WechatApiBundle:Page:menu }
+
+wechat_page_keyword:
+    path:     /wechat/keyword
+    defaults: { _controller: WechatApiBundle:Page:keyword }
+
+wechat_page_reply:
+    path:     /wechat/reply
+    defaults: { _controller: WechatApiBundle:Page:reply }
+
+wechat_npage_store:
+    path:     /wechat/store/{id}
+    defaults: { _controller: WechatApiBundle:Page:store }
+# wechat page list end

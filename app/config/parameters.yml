@@ -1,0 +1,24 @@
+# This file is auto-generated during the composer install
+parameters:
+    database_driver: pdo_mysql
+    database_host: 127.0.0.1
+    database_port: null
+    database_name: kering_weixin
+    database_user: root
+    database_password: ''
+    mailer_transport: smtp
+    mailer_host: 127.0.0.1
+    mailer_user: null
+    mailer_password: null
+    locale: en
+    secret: d96c19363af6dad4bb028f47ddcf7d94fba67bc1
+
+    # redis
+    redis_host: 127.0.0.1
+    redis_port: 6379
+    redis_prostr: kering:
+
+    bundles:
+      - wechat_api
+      - article
+      - user
