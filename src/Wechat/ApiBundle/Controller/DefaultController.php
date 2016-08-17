@@ -44,12 +44,18 @@ class DefaultController extends Controller
       $wechat = $this->container->get('my.Wechat');
       $callback = $request->query->get('callback');
       $url = urldecode($request->query->get('url'));
+      if(!$this->container->get('my.functions')->allowjssdk($url)){
+        return new Response('this domain not allow empower');
+      }
       return new Response($callback.'('.$wechat->getJsSDK($url).')');
     }
 
     public function sharetoken2Action(Request $request){//json get
       $wechat = $this->container->get('my.Wechat');
       $url = urldecode($request->query->get('url'));
+      if(!$this->container->get('my.functions')->allowjssdk($url)){
+        return new Response('this domain not allow empower');
+      }
       return new Response($wechat->getJsSDK($url));
     }
 

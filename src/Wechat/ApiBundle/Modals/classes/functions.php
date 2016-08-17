@@ -70,4 +70,15 @@ class functions{
     }
     return false;
   }
+
+  public function allowjssdk($url){
+    $allow = array(
+      'shangrilawechat.samesamechina.com',
+    );
+    foreach($allow as $x){
+      if(preg_match("/^".$x."/i", $url))
+      return true;
+    }
+    return false;
+  }
 }
