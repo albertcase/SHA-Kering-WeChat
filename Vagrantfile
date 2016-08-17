@@ -4,11 +4,11 @@
 Vagrant.configure("2") do |config|
 
   config.vm.box = "ubuntu14.04-20150827"
-  config.vm.hostname = "MaxmaraWechat"
+  config.vm.hostname = "keringWechat"
 
 
-  config.vm.network :forwarded_port, guest: 80, host: 8069
-  config.vm.network :forwarded_port, guest: 3306, host: 33069
+  config.vm.network :forwarded_port, guest: 80, host: 8070
+  config.vm.network :forwarded_port, guest: 3306, host: 33070
 
   config.vm.network :private_network, ip: "192.168.33.10"
 
