@@ -26,6 +26,7 @@ function wechatFun(_appId, _timestamp, _nonceStr, _signature,sharetitle,sharelin
             'closeWindow'
         ]
     });
+  }
     wx.ready(function() {
         $.ajax({
             type: "GET",
