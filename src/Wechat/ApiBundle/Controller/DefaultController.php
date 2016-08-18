@@ -30,7 +30,7 @@ class DefaultController extends Controller
       $wechat = $this->container->get('my.Wechat');
       $state = urldecode($request->query->get('state'));
       if(!$this->container->get('my.functions')->allowurl($state)){
-        return new Response(json_encode('code' => '9', 'msg' => 'this domain not allow empower'));
+        return new Response(json_encode(array('code' => '9', 'msg' => 'this domain not allow empower')));
       }
       $userinfo = $wechat->getoauthuserinfo();
       unset($userinfo['privilege'],$userinfo['unionid'],$userinfo['language']);
