@@ -1,5 +1,3 @@
-
-
 function wechatFun(_appId, _timestamp, _nonceStr, _signature,sharetitle,sharelink,sharedes,shareimg){
     wx.config({
         debug: true,
@@ -34,7 +32,7 @@ function wechatFun(_appId, _timestamp, _nonceStr, _signature,sharetitle,sharelin
             url: "http://keringwechat.samesamechina.com/sharetoken?url="+encodeURIComponent(window.location), //this url need urlencode
             async: false,
             success: function (data) {
-            wechatFun(data.appid, data.time, data.noncestr, data.sign);
+              wechatFun(data.jssdk.appid, data.jssdk.time, data.jssdk.noncestr, data.jssdk.sign);
             }
     });
 });
