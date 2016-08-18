@@ -2,7 +2,7 @@
 
 function wechatFun(_appId, _timestamp, _nonceStr, _signature,sharetitle,sharelink,sharedes,shareimg){
     wx.config({
-        debug: false,
+        debug: true,
         appId: _appId,
         timestamp: _timestamp,
         nonceStr: _nonceStr,
@@ -27,34 +27,10 @@ function wechatFun(_appId, _timestamp, _nonceStr, _signature,sharetitle,sharelin
         ]
     });
     wx.ready(function() {
-        wx.onMenuShareTimeline({
-            title: sharetitle,
-            link: sharelink,
-            imgUrl: shareimg,
-            success: function () {
-
-            },
-            cancel: function () {
-            }
-        });
-        wx.onMenuShareAppMessage({
-            title: sharetitle,
-            desc: sharedes,
-            link: sharelink,
-            imgUrl: shareimg,
-            type: '',
-            dataUrl: '',
-            success: function () {
-
-            },
-            cancel: function () {
-            }
-        });
         $.ajax({
             type: "GET",
             dataType: "jsonp",
-            url: "http://shangrilawechat.samesamechina.com/wechat/sharetoken?
-            url="+encodeURIComponent(window.location), //this url need urlencode
+            url: "http://keringwechat.samesamechina.com/sharetoken?url="+encodeURIComponent(window.location), //this url need urlencode
             async: false,
             success: function (data) {
             wechatFun(data.appid, data.time, data.noncestr, data.sign);
