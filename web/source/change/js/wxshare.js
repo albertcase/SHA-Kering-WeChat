@@ -25,14 +25,12 @@ function wechatFun(_appId, _timestamp, _nonceStr, _signature,sharetitle,sharelin
         ]
     });
   }
-    wx.ready(function() {
-        $.ajax({
-            type: "GET",
-            dataType: "jsonp",
-            url: "http://keringwechat.samesamechina.com/sharetoken?url="+encodeURIComponent(window.location), //this url need urlencode
-            async: false,
-            success: function (data) {
-              wechatFun(data.jssdk.appid, data.jssdk.time, data.jssdk.noncestr, data.jssdk.sign);
-            }
-    });
+  $.ajax({
+      type: "GET",
+      dataType: "jsonp",
+      url: "http://keringwechat.samesamechina.com/sharetoken?url="+encodeURIComponent(window.location), //this url need urlencode
+      async: false,
+      success: function (data) {
+        wechatFun(data.jssdk.appid, data.jssdk.time, data.jssdk.noncestr, data.jssdk.sign);
+      }
 });
