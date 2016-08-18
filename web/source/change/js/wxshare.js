@@ -37,4 +37,4 @@ function wechatFun(_appId, _timestamp, _nonceStr, _signature,sharetitle,sharelin
             wechatFun(data.appid, data.time, data.noncestr, data.sign);
             }
     });
-}
+});
