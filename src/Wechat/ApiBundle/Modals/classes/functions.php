@@ -65,7 +65,7 @@ class functions{
       'keringwechat.samesamechina.com',
     );
     foreach($allow as $x){
-      if(preg_match("/^".$x."/i", $url))
+      if(preg_match("/^http:\/\/".$x."/i", $url))
       return true;
     }
     return false;
@@ -76,7 +76,7 @@ class functions{
       'keringwechat.samesamechina.com',
     );
     foreach($allow as $x){
-      if(preg_match("/^".$x."/i", $url))
+      if(preg_match("/^http:\/\/".$x."/i", $url))
       return true;
     }
     return false;

@@ -92,19 +92,10 @@ class DefaultController extends Controller
 
     public function api1Action(Request $request)
     {
-
-      // print_r($request->query->all());
-      // hasParameter
-      // $papis = array();
-      // $bundles = $this->container->getParameter('bundles');
-      // foreach ($bundles as $x) {
-      //   if($this->container->hasParameter($x.'_papis'))
-      //     $papis = array_merge($papis ,$this->container->getParameter($x.'_papis'));
-      // }
-      // $url = $request->get("urll");
-      $data = '四川省成都市红星路3段1号国际金融中心L215号铺';
-      $out = explode('号', $data);
-      print_r($out);
+      $url = 'ahttp://keringwechat.samesamechina.com/empowertest';
+      $x = 'keringwechat.samesamechina.com';
+      if(preg_match("/^http:\/\/".$x."/i", $url))
+      print "\nsuccess\n";
       // print_r($this->container->get('request_stack')->getCurrentRequest()->getSchemeAndHttpHost());
       return new Response("\n123456789");
     }
