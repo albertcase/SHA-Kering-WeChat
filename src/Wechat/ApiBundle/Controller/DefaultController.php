@@ -28,7 +28,7 @@ class DefaultController extends Controller
     public function empowerAction(Request $request)
     {
       $wechat = $this->container->get('my.Wechat');
-      if(!$this->container->get('my.functions')->allowurl($request->query->get('state'))){
+      if(!$state = $this->container->get('my.functions')->allowurl($request->query->get('state'))){
         return new Response('this domain not allow empower');
       }
       $userinfo = $wechat->getoauthuserinfo();
@@ -81,6 +81,12 @@ class DefaultController extends Controller
         $fs->dumpFile($path, $image);
       }
       return new Response(json_encode("success", JSON_UNESCAPED_UNICODE));
+    }
+
+    public function empowertestAction(Request $request)
+    {
+      print_r($request->query->all());
+      return new Response("\nsuccess");
     }
 
     public function api1Action(Request $request)

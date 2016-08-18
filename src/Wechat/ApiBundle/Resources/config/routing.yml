@@ -10,6 +10,10 @@ wechat_api_empower:
     path:     /empower
     defaults: { _controller: WechatApiBundle:Default:empower }
 
+wechat_api_empowertest:
+    path:     /empowertest
+    defaults: { _controller: WechatApiBundle:Default:empowertest }
+
 wechat_api_sharetoken:
     path:     /sharetoken
     defaults: { _controller: WechatApiBundle:Default:sharetoken }
