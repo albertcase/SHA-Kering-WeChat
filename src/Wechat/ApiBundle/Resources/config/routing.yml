@@ -1,5 +1,5 @@
 wechat_api_homepage:
-    path:     /hello/{name}
+    path:     /hello
     defaults: { _controller: WechatApiBundle:Default:index }
 
 wechat_api_feedback:
@@ -19,7 +19,7 @@ wechat_api_sharetoken:
     defaults: { _controller: WechatApiBundle:Default:sharetoken }
 
 wechat_api_sharetoken2:
-    path:     /sharetoken
+    path:     /sharetoken2
     defaults: { _controller: WechatApiBundle:Default:sharetoken2 }
 
 wechat_api_api1:

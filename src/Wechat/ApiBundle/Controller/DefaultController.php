@@ -9,9 +9,9 @@ use Symfony\Component\HttpFoundation\Session\Session;
 
 class DefaultController extends Controller
 {
-    public function indexAction($name)
+    public function indexAction()
     {
-        return $this->render('WechatApiBundle:Default:index.html.twig', array('name' => $name));
+        return $this->render('WechatApiBundle:Default:index.html.twig');
     }
 
     public function wechatAction()
@@ -30,7 +30,7 @@ class DefaultController extends Controller
       $wechat = $this->container->get('my.Wechat');
       $state = urldecode($request->query->get('state'));
       if(!$this->container->get('my.functions')->allowurl($state)){
-        return new Response('this domain not allow empower');
+        return new Response(json_encode('code' => '9', 'msg' => 'this domain not allow empower'));
       }
       $userinfo = $wechat->getoauthuserinfo();
       unset($userinfo['privilege'],$userinfo['unionid'],$userinfo['language']);
@@ -46,7 +46,7 @@ class DefaultController extends Controller
       $callback = $request->query->get('callback');
       $url = urldecode($request->query->get('url'));
       if(!$this->container->get('my.functions')->allowjssdk($url)){
-        return new Response(json_encode(array('code' => '10', 'msg' => 'no permission domain')));
+        return new Response(json_encode(array('code' => '9', 'msg' => 'no permission domain')));
       }
       return new Response($callback.'('.$wechat->getJsSDK($url).')');
     }
@@ -55,7 +55,7 @@ class DefaultController extends Controller
       $wechat = $this->container->get('my.Wechat');
       $url = urldecode($request->query->get('url'));
       if(!$this->container->get('my.functions')->allowjssdk($url)){
-        return new Response(json_encode(array('code' => '10', 'msg' => 'no permission domain')));
+        return new Response(json_encode(array('code' => '9', 'msg' => 'no permission domain')));
       }
       return new Response($wechat->getJsSDK($url));
     }
