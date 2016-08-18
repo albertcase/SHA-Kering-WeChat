@@ -28,7 +28,8 @@ class DefaultController extends Controller
     public function empowerAction(Request $request)
     {
       $wechat = $this->container->get('my.Wechat');
-      if(!$state = $this->container->get('my.functions')->allowurl($request->query->get('state'))){
+      $state = $request->query->get('state');
+      if(!$this->container->get('my.functions')->allowurl($state)){
         return new Response('this domain not allow empower');
       }
       $userinfo = $wechat->getoauthuserinfo();
