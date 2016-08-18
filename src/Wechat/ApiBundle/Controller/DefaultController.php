@@ -45,7 +45,7 @@ class DefaultController extends Controller
       $callback = $request->query->get('callback');
       $url = urldecode($request->query->get('url'));
       if(!$this->container->get('my.functions')->allowjssdk($url)){
-        return new Response('this domain not allow empower');
+        return new Response(json_encode(array('code' => '10', 'msg' => 'no permission domain')));
       }
       return new Response($callback.'('.$wechat->getJsSDK($url).')');
     }
@@ -54,7 +54,7 @@ class DefaultController extends Controller
       $wechat = $this->container->get('my.Wechat');
       $url = urldecode($request->query->get('url'));
       if(!$this->container->get('my.functions')->allowjssdk($url)){
-        return new Response('this domain not allow empower');
+        return new Response(json_encode(array('code' => '10', 'msg' => 'no permission domain')));
       }
       return new Response($wechat->getJsSDK($url));
     }
