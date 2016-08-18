@@ -37,7 +37,7 @@ class DefaultController extends Controller
       $data = "openid={$userinfo['openid']}&nickname={$userinfo['nickname']}&headimgurl={$userinfo['headimgurl']}";
       if(strpos($state, '?') === false)
         $data = '?'.$data;
-      $goto = 'http://'.$state.$data;
+      $goto = $state.$data;
       return $this->redirect($goto);
     }
 
