@@ -63,6 +63,7 @@ class functions{
   public function allowurl($url){ // allow empower domain
     $allow = array(
       'keringwechat.samesamechina.com',
+      'keringrecruitment.samesamechina.com'
     );
     foreach($allow as $x){
       if(preg_match("/^http:\/\/".$x."/i", $url))
@@ -74,6 +75,7 @@ class functions{
   public function allowjssdk($url){
     $allow = array(
       'keringwechat.samesamechina.com',
+      'keringrecruitment.samesamechina.com'
     );
     foreach($allow as $x){
       if(preg_match("/^http:\/\/".$x."/i", $url))
