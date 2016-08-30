@@ -92,7 +92,7 @@ class DefaultController extends Controller
 
     public function api1Action(Request $request)
     {
-      $url = "http://keringwechat.samesamechina.com/sharetoken2?url=http%3a%2f%2fkeringwechat.samesamechina.com%2fsharetoken"=
+      $url = "http://keringwechat.samesamechina.com/sharetoken2?url=http%3a%2f%2fkeringwechat.samesamechina.com%2fsharetoken";
       print_r($this->get_data($url));
       return new Response("\n123456789");
     }
