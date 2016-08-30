@@ -92,11 +92,13 @@ class DefaultController extends Controller
 
     public function api1Action(Request $request)
     {
-      $url = 'ahttp://keringwechat.samesamechina.com/empowertest';
-      $x = 'keringwechat.samesamechina.com';
-      if(preg_match("/^http:\/\/".$x."/i", $url))
-      print "\nsuccess\n";
-      // print_r($this->container->get('request_stack')->getCurrentRequest()->getSchemeAndHttpHost());
+      $url = "http://keringwechat.samesamechina.com/sharetoken2?url=http%3a%2f%2fkeringwechat.samesamechina.com%2fsharetoken"=
+      print_r($this->get_data($url));
       return new Response("\n123456789");
+    }
+    public function get_data($url, $return_array = true){
+        if($return_array)
+          return json_decode( file_get_contents($url), true );
+        return file_get_contents($url);
     }
 }
