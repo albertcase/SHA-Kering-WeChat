@@ -84,6 +84,12 @@ class DefaultController extends Controller
       return new Response(json_encode("success", JSON_UNESCAPED_UNICODE));
     }
 
+    public function dltempmediaAction(Request $request)
+    {
+      return new Response("\nsuccess");
+    }
+
+//test
     public function empowertestAction(Request $request)
     {
       print_r($request->query->all());
