@@ -94,7 +94,7 @@ class DefaultController extends Controller
         $url = str_replace('MEDIA_ID', $meda_id ,$url);
         return new Response(file_get_contents($url));
       }
-      return new Response(json_encode(array('code' => '8', 'msg' => 'error access token'), JSON_UNESCAPED_UNICODE));
+      return new Response(json_encode(array('errcode' => '8', 'errmsg' => 'error access token'), JSON_UNESCAPED_UNICODE));
     }
 
 //test
