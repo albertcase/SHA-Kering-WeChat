@@ -31,6 +31,8 @@ function wechatFun(_appId, _timestamp, _nonceStr, _signature,sharetitle,sharelin
             'uploadVoice',
             'downloadVoice',
             'translateVoice',
+            'startRecord',
+            'stopRecord'
         ]
     });
   }
