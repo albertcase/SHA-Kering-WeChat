@@ -6,6 +6,10 @@ services:
           class: Wechat\ApiBundle\Modals\classes\Wechat
           arguments: [@service_container]
 
+        my.tempMedia:
+          class: Wechat\ApiBundle\Modals\Dltempmedia\tempMedia
+          arguments: [@service_container]
+
         vendor.MysqliDb:
           class: MysqliDb
           arguments: [%database_host%, %database_user%, %database_password%, %database_name%]

@@ -86,7 +86,15 @@ class DefaultController extends Controller
 
     public function dltempmediaAction(Request $request)
     {
-      return new Response("\nsuccess");
+      $token = $this->container->get("my.Wechat")->getAccessToken();
+      if(!$token){
+        $meda_id = $request->get('meda_id');
+        $url = "https://api.weixin.qq.com/cgi-bin/media/get?access_token=ACCESS_TOKEN&media_id=MEDIA_ID";
+        $url = str_replace('ACCESS_TOKEN', $token ,$url);
+        $url = str_replace('MEDIA_ID', $meda_id ,$url);
+        return new Response(file_get_contents($url));
+      }
+      return new Response(false);
     }
 
 //test
