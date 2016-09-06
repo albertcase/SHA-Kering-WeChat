@@ -9,9 +9,9 @@ wechat_api_feedback:
 wechat_api_empower:
     path:     /empower
     defaults: { _controller: WechatApiBundle:Default:empower }
-
+# out api
 wechat_api_dltempmedia:
-    path:     /dltempmedia
+    path:     /webservice/mediaretrieve
     defaults: { _controller: WechatApiBundle:Default:dltempmedia }
 
 wechat_api_dltemp:
