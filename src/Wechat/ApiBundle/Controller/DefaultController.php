@@ -88,7 +88,7 @@ class DefaultController extends Controller
     {
       $token = $this->container->get("my.Wechat")->getAccessToken();
       if($token){
-        $meda_id = $request->get('meda_id');
+        $meda_id = $request->get('media_id');
         $url = "https://api.weixin.qq.com/cgi-bin/media/get?access_token=ACCESS_TOKEN&media_id=MEDIA_ID";
         $url = str_replace('ACCESS_TOKEN', $token ,$url);
         $url = str_replace('MEDIA_ID', $meda_id ,$url);
@@ -113,7 +113,7 @@ class DefaultController extends Controller
     }
 
     public function dltempAction(Request $request){
-      $meda_id = $request->get('meda_id');
+      $meda_id = $request->get('media_id');
       $file = file_get_contents("http://keringwechat.samesamechina.com/dltempmedia?meda_id=".$meda_id);
       $fp = fopen($meda_id.".amr", "w");
       fwrite($fp,$file);
