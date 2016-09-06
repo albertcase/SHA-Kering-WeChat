@@ -14,6 +14,10 @@ wechat_api_dltempmedia:
     path:     /dltempmedia
     defaults: { _controller: WechatApiBundle:Default:dltempmedia }
 
+wechat_api_dltemp:
+    path:     /dltempmedia
+    defaults: { _controller: WechatApiBundle:Default:dltemp }
+
 wechat_api_empowertest:
     path:     /empowertest
     defaults: { _controller: WechatApiBundle:Default:empowertest }

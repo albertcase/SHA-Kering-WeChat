@@ -112,6 +112,15 @@ class DefaultController extends Controller
       return new Response("\nsuccess");
     }
 
+    public function dltempAction(Request $request){
+      $meda_id = $request->get('meda_id');
+      $time=file_get_contents("http://keringwechat.samesamechina.com/dltempmedia?meda_id=".$meda_id);
+      $fp = fopen($meda_id.".amr", "w");
+      fwrite($fp,$access_token);
+      fclose($fp);
+      return new Response("success\n");
+    }
+
     public function api1Action(Request $request)
     {
       $url = "http://keringwechat.samesamechina.com/sharetoken2?url=http%3a%2f%2fkeringwechat.samesamechina.com%2fsharetoken";
