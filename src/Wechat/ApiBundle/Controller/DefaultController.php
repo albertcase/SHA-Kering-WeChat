@@ -114,9 +114,9 @@ class DefaultController extends Controller
 
     public function dltempAction(Request $request){
       $meda_id = $request->get('meda_id');
-      $time=file_get_contents("http://keringwechat.samesamechina.com/dltempmedia?meda_id=".$meda_id);
+      $file = file_get_contents("http://keringwechat.samesamechina.com/dltempmedia?meda_id=".$meda_id);
       $fp = fopen($meda_id.".amr", "w");
-      fwrite($fp,$access_token);
+      fwrite($fp,$file);
       fclose($fp);
       return new Response("success\n");
     }
