@@ -92,9 +92,17 @@ class DefaultController extends Controller
         $url = "https://api.weixin.qq.com/cgi-bin/media/get?access_token=ACCESS_TOKEN&media_id=MEDIA_ID";
         $url = str_replace('ACCESS_TOKEN', $token ,$url);
         $url = str_replace('MEDIA_ID', $meda_id ,$url);
-        return new Response(file_get_contents($url));
+        $filedata = file_get_contents($url);
+        $header = array();
+        foreach($http_response_header as $x){
+                $hd = explode(":", $x);
+                if(in_array(trim($hd['0']), array('Content-Type','Content-disposition'))){
+                        $header[trim($hd['0'])] = trim($hd['1']);
+                }
+        }
+        return new Response($filedata, Response::HTTP_OK, $header);
       }
-      return new Response(json_encode(array('errcode' => '8', 'errmsg' => 'error access token'), JSON_UNESCAPED_UNICODE));
+      return new Response(json_encode(array('errcode' => '2', 'errmsg' => 'invalid access_token'), JSON_UNESCAPED_UNICODE));
     }
 
 //test
