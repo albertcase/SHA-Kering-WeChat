@@ -89,6 +89,8 @@ class DefaultController extends Controller
       $token = $this->container->get("my.Wechat")->getAccessToken();
       if($token){
         $meda_id = $request->get('media_id');
+        if(!$meda_id)
+          return new Response(json_encode(array('errcode' => '40013', 'errmsg' => 'invalid appid'), JSON_UNESCAPED_UNICODE));
         $url = "https://api.weixin.qq.com/cgi-bin/media/get?access_token=ACCESS_TOKEN&media_id=MEDIA_ID";
         $url = str_replace('ACCESS_TOKEN', $token ,$url);
         $url = str_replace('MEDIA_ID', $meda_id ,$url);
