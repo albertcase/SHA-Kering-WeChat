@@ -44,8 +44,7 @@ class DefaultController extends Controller
     public function sharetokenAction(Request $request){//jsonp
       $wechat = $this->container->get('my.Wechat');
       $callback = $request->query->get('callback');
-      $url = urldecode($request->query->get('url'));
-      $url = str_replace(" ", "%20" ,$url);
+      $url = $request->query->get('url');
       if(!$this->container->get('my.functions')->allowjssdk($url)){
         return new Response(json_encode(array('code' => '9', 'msg' => 'no permission domain')));
       }
@@ -54,8 +53,7 @@ class DefaultController extends Controller
 
     public function sharetoken2Action(Request $request){//json get
       $wechat = $this->container->get('my.Wechat');
-      $url = urldecode($request->query->get('url'));
-      $url = str_replace(" ", "%20" ,$url);
+      $url = $request->query->get('url');
       if(!$this->container->get('my.functions')->allowjssdk($url)){
         return new Response(json_encode(array('code' => '9', 'msg' => 'no permission domain')));
       }
